@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ws.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ws.com" xmlns:intf="http://ws.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ws.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="zajmijMiejsce">
+    <complexType>
+     <sequence>
+      <element name="miejsce" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="zajmijMiejsceResponse">
+    <complexType>
+     <sequence>
+      <element name="zajmijMiejsceReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="zwolnijMiejsce">
+    <complexType>
+     <sequence>
+      <element name="miejsce" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="zwolnijMiejsceResponse">
+    <complexType>
+     <sequence>
+      <element name="zwolnijMiejsceReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="zwolnijMiejsceRequest">
+
+      <wsdl:part element="impl:zwolnijMiejsce" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="zajmijMiejsceResponse">
+
+      <wsdl:part element="impl:zajmijMiejsceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="zajmijMiejsceRequest">
+
+      <wsdl:part element="impl:zajmijMiejsce" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="zwolnijMiejsceResponse">
+
+      <wsdl:part element="impl:zwolnijMiejsceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Parking">
+
+      <wsdl:operation name="zajmijMiejsce">
+
+         <wsdl:input message="impl:zajmijMiejsceRequest" name="zajmijMiejsceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:zajmijMiejsceResponse" name="zajmijMiejsceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="zwolnijMiejsce">
+
+         <wsdl:input message="impl:zwolnijMiejsceRequest" name="zwolnijMiejsceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:zwolnijMiejsceResponse" name="zwolnijMiejsceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ParkingSoapBinding" type="impl:Parking">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="zajmijMiejsce">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="zajmijMiejsceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="zajmijMiejsceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="zwolnijMiejsce">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="zwolnijMiejsceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="zwolnijMiejsceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ParkingService">
+
+      <wsdl:port binding="impl:ParkingSoapBinding" name="Parking">
+
+         <wsdlsoap:address location="http://localhost:8080/Projekt/services/Parking"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
